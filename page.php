@@ -26,7 +26,23 @@
           <div class="row px-5 py-3 d-flex justify-content-center text-center btn-group btn-group-toggle" id="choices_box" data-toggle="buttons">
             
           </div>
-          
+          <nav aria-label="..." class="d-flex justify-content-center text-center ">
+            <ul class="pagination">
+              <li class="page-item" onClick="Qprev()">
+                <span class="page-link">ก่อนหน้า</span>
+              </li>
+              <li class="page-item"><p class="page-link">1</p></li>
+              <li class="page-item active">
+                <span class="page-link">
+                  2
+                </span>
+              </li>
+              <li class="page-item"><p class="page-link" >3</p></li>
+              <li class="page-item" onClick="Qnext()">
+                <p class="page-link">ถัดไป</p>
+              </li>
+            </ul>
+          </nav>
         </div>
         <div id="clock"></div>
       </div>

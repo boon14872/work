@@ -61,6 +61,7 @@ var data = [
 
 
 var user_data = [];
+var q = 0;
 
 function showdata(data) {
     for (var i = 0; i < data.length; i++) {
@@ -139,3 +140,13 @@ function SetValues(qid, choice) {
 $(document).ready(function (){
     updateQuestion(data, 0);
 });
+
+function Qnext() {
+    q += 1;
+    updateQuestion(data, q);
+}
+
+function Qprev() {
+    q -= 1;
+    updateQuestion(data, q);
+}
