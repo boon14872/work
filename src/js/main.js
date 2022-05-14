@@ -56,13 +56,100 @@ var data = [
                 "image":""
             },
         ]
+    },
+    {
+        "id": "3",
+        "text":"how old are you?",
+        "image":false,
+        "image_path": "",
+        "choices_image":false,
+        "choices": [
+            {
+                "id": 1,
+                "text": "1",
+                "image":""
+            },
+            {
+                "id": 2,
+                "text": "2",
+                "image":""
+            },
+            {
+                "id": 3,
+                "text": "3",
+                "image":""
+            },
+            {
+                "id": 4,
+                "text": "4",
+                "image":""
+            },
+        ]
+    },
+    {
+        "id": "4",
+        "text":"how old are you?",
+        "image":false,
+        "image_path": "",
+        "choices_image":false,
+        "choices": [
+            {
+                "id": 1,
+                "text": "1",
+                "image":""
+            },
+            {
+                "id": 2,
+                "text": "2",
+                "image":""
+            },
+            {
+                "id": 3,
+                "text": "3",
+                "image":""
+            },
+            {
+                "id": 4,
+                "text": "4",
+                "image":""
+            },
+        ]
+    },
+    {
+        "id": "5",
+        "text":"how old are you?",
+        "image":false,
+        "image_path": "",
+        "choices_image":false,
+        "choices": [
+            {
+                "id": 1,
+                "text": "1",
+                "image":""
+            },
+            {
+                "id": 2,
+                "text": "2",
+                "image":""
+            },
+            {
+                "id": 3,
+                "text": "3",
+                "image":""
+            },
+            {
+                "id": 4,
+                "text": "4",
+                "image":""
+            },
+        ]
     }
 ];
 
 
 var user_data = [];
 var q = 0;
-var data_length = data.length;
+var data_length = parseInt(data.length);
 
 function showdata(data) {
     for (var i = 0; i < data.length; i++) {
@@ -141,33 +228,15 @@ function updateQuestion(data, i) {
     }
 }
 
-
-function SetValues(qid, choice) {
-    user_data[qid] = choice;
-    return user_data;
-}
-
-
-
-function Qnext() {
-    q += 1;
-    updateQuestion(data, q);
-}
-
-function Qprev() {
-    q -= 1;
-    updateQuestion(data, q);
-}
-
 function GenPagination(length) {
     var disaled_next = i == length ? "disaled" : "";
     var disaled_prev = i == 0 ? "disaled" : "";
     var pageination_prev = `
-                <li class="page-item `+disaled_prev+`" onClick="Qprev()">
+                <li class="page-item `+disaled_prev+`" id="-1">
                 <span class="page-link">ก่อนหน้า</span>
                 </li>`;
     var pageination_next = `
-                <li class="page-item `+disaled_next+`" onClick="Qnext()">
+                <li class="page-item `+disaled_next+`" id="+1">
                 <p class="page-link">ถัดไป</p>
                 </li>`;
     var pageination_number = "";
@@ -175,7 +244,7 @@ function GenPagination(length) {
         var number = i+1;
         var active = i == q ? "active" : "";
         var element = `
-            <li class="page-item `+active+`" id="`+number+`" onClick="changePage(this)">
+            <li class="page-item `+active+`" id="`+number+`">
             <span class="page-link">
                 `+number+`
             </span>
@@ -186,6 +255,14 @@ function GenPagination(length) {
     var e = $('nav > ul.pagination');
     e.empty();
     e.append(pageination_prev+pageination_number+pageination_next);
+    $('nav > ul.pagination > li.page-item').on('click', function (e) {
+        var page = e.currentTarget.id.toString();
+        if (page == "-1") q = q-1;
+        else if (page == "+1") q = q+1;
+        else q = parseInt(page)-1;
+        updateQuestion(data, q);
+        //console.log(e.currentTarget.id);
+    });
 }
 
 function changePage(e) {
