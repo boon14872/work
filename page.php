@@ -23,35 +23,10 @@
             <div class="col-9 text-left">เวลาให้นมลูกมีอาการปวด บวม ของเต้านมบ้างส่วน ซึ่งอาจเกิดจาก อุดตันของท่อน้ำนม โดยทำให้เต้านมอักเสบได้</div>
         </h3>
         <div class="container-fulid">
-          <div class="row px-5 py-3 d-flex justify-content-center text-center btn-group btn-group-toggle" id="choices_box">
-          <div class="btn-group-toggle row w-50"  data-toggle="buttons">
-              <?php 
-              $arr_topup = array(
-                100,200,500,1000,3000
-            );
-                  foreach($arr_topup as $key_topup=>$value_topup){ // BEGIN LOOP
-                        $active_state = (isset($default_value) && $default_value==$value_topup)?" btn-info active":"btn-light";
-                        $check_state = (isset($default_value) && $default_value==$value_topup)?" checked":"";
-                        if(isset($default_value) && $default_value==$value_topup && is_null($initial_value)){
-                            $initial_value = true;  
-                        }
-              ?>
-              <label class="btn btn-sm col-4 mt-2 shadow-sm btn-c-topup <?=$active_state?>">
-                <input type="radio" name="topup" id="topup_<?=$key_topup?>" autocomplete="off"
-                value="<?=$value_topup?>" required <?=$check_state?>> <?=number_format($value_topup,0)?>
-              </label>
-              <?php
-                  } // END LOOP
-              ?>
-            </div>       
-            <?php for ($i = 0; $i < 0; $i++) { ?>
-          <!---------------------------------------------------------------->
-          <div class="col-lg-5 btn btn-secondary p-2 text_form mx-4 my-2 text-justify break-text text-center" data-toggle="buttons">
-            <p class="m-0">sadsdad</p>
+          <div class="row px-5 py-3 d-flex justify-content-center text-center btn-group btn-group-toggle" id="choices_box" data-toggle="buttons">
+            
           </div>
-          <!---------------------------------------------------------------->
-          <?php }?>
-          </div>
+          
         </div>
         <div id="clock"></div>
       </div>
