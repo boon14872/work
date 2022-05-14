@@ -62,6 +62,7 @@ var data = [
 
 var user_data = [];
 var q = 0;
+var data_length = data.length;
 
 function showdata(data) {
     for (var i = 0; i < data.length; i++) {
@@ -76,6 +77,15 @@ function showdata(data) {
 
 function updateQuestion(data, i) {
     //for (var i = 0; i < data.length; i++) {
+    if (i > data_length-1) {
+        q = data_length-1;
+        return false;
+    }
+    else if (i < 0) {
+        q = 0;
+        return false;
+    }
+    else {
         $('#questions > div:first').html("คำถามที่ "+data[i].id+":");
         $('#questions > div:last').html(`<div class="row" id="`+data[i].id+`">`+data[i].text+`</div>`);
         if (data[i].image == true) {
@@ -127,7 +137,8 @@ function updateQuestion(data, i) {
             //console.log(questions);
         })
     //}
-
+    GenPagination(data_length);
+    }
 }
 
 
@@ -137,9 +148,6 @@ function SetValues(qid, choice) {
 }
 
 
-$(document).ready(function (){
-    updateQuestion(data, 0);
-});
 
 function Qnext() {
     q += 1;
@@ -150,3 +158,42 @@ function Qprev() {
     q -= 1;
     updateQuestion(data, q);
 }
+
+function GenPagination(length) {
+    var disaled_next = i == length ? "disaled" : "";
+    var disaled_prev = i == 0 ? "disaled" : "";
+    var pageination_prev = `
+                <li class="page-item `+disaled_prev+`" onClick="Qprev()">
+                <span class="page-link">ก่อนหน้า</span>
+                </li>`;
+    var pageination_next = `
+                <li class="page-item `+disaled_next+`" onClick="Qnext()">
+                <p class="page-link">ถัดไป</p>
+                </li>`;
+    var pageination_number = "";
+    for (var i = 0; i < length; i++) {
+        var number = i+1;
+        var active = i == q ? "active" : "";
+        var element = `
+            <li class="page-item `+active+`" id="`+number+`" onClick="changePage(this)">
+            <span class="page-link">
+                `+number+`
+            </span>
+            </li>
+            `;
+        pageination_number+= element;
+    }
+    var e = $('nav > ul.pagination');
+    e.empty();
+    e.append(pageination_prev+pageination_number+pageination_next);
+}
+
+function changePage(e) {
+    q = e.id-1;
+    updateQuestion(data, q);
+}
+
+$(document).ready(function (){
+    updateQuestion(data, 0);
+    
+});
