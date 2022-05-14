@@ -60,6 +60,8 @@ var data = [
 ];
 
 
+var user_data = [];
+
 function showdata(data) {
     for (var i = 0; i < data.length; i++) {
         console.log(data[i].id);
@@ -73,47 +75,67 @@ function showdata(data) {
 
 function updateQuestion(data, i) {
     //for (var i = 0; i < data.length; i++) {
-        $('#questions > div:first').html("คำถามที่ "+data[i].id+1+":");
-        $('#questions > div:last').html(`<div class="row">`+data[i].text+`</div>`);
+        $('#questions > div:first').html("คำถามที่ "+data[i].id+":");
+        $('#questions > div:last').html(`<div class="row" id="`+data[i].id+`">`+data[i].text+`</div>`);
         if (data[i].image == true) {
             $('#questions > div:last').append(`<div class="row justify-content-center text-center p-2"><img src="src/images/lg1.png" width="15%"></div>`)
         }
         //console.log(data[i].id);boot
         //console.log(data[i].text);
+
+        // clear choices
+        var checked = null;
         $('#choices_box').empty();
+        if (user_data[i] != null) {
+            checked = parseInt(user_data[i])-1;
+        }
+        // add choices
         for (var j = 0; j < data[i].choices.length; j++) {
             //console.log(data[i].choices[j].id);
             //console.log(data[i].choices[j].text);
+            var check = checked == j ? "active" : "";
+
+            // check if have image
             if (data[i].choices_image == true) {
                 var choice = `
-                <input type="radio" class="btn-check" name="options" id="`+data[i].id+`" autocomplete="off">
-                <label class="col-lg-5 btn btn-secondary p-2 text_form mx-4 my-2 text-justify break-text text-center" for="option2">
-                    <div class="" id="choice" value="">`+data[i].choices[j].text+`</div>
-                    <div class="row justify-content-center text-center p-2"><img src="src/images/lg1.png" width="15%"></div>
+                <label class="btn btn-sm col-5 m-3 p-2 shadow-sm btn-c-topup btn-light `+check+`" id="`+data[i].choices[j].id+`">
+                <input type="radio" name="`+data[i].choices[j].id+`" id="`+data[i].choices[j].id+`" autocomplete="off"
+                value="" required > `+data[i].choices[j].text+`
+                <div class="row justify-content-center text-center p-2" id="`+data[i].choices[j].id+`"><img src="src/images/lg1.png" width="15%" id="`+data[i].choices[j].id+`"></div>
                 </label>`;
             }
             else {
                 var choice = `
-                <input type="radio" class="btn-check" name="options" id="`+data[i].id+`" autocomplete="off">
-                <label class="btn btn-secondary" for="option2">
-                    <div class="col-lg-5 btn btn-secondary p-2 text_form mx-4 my-2 text-justify break-text text-center" id="choice" value="">`+data[i].choices[j].text+`</div>
+                <label class="btn btn-sm col-5 m-3 p-2 shadow-sm btn-c-topup btn-light `+check+`" id="`+data[i].choices[j].id+`">
+                <input type="radio" name="`+data[i].choices[j].id+`" id="`+data[i].choices[j].id+`" autocomplete="off"
+                value="" required> `+data[i].choices[j].text+`
                 </label>`;
             }
             
             $('#choices_box').append(choice);
+            
         }
+        // end add choices
+
+        // check user click
+        $('div#choices_box').children().click(function (e) {
+            var choice = e.target.id;
+            var questions = $('#questions > div:last').children().attr('id')-1;
+            user_data[questions] = choice;
+            console.log(choice);
+            //console.log(questions);
+        })
     //}
 
 }
 
 
 function SetValues(qid, choice) {
-    var data = [];
-    data[qid] = choice;
-    return data;
+    user_data[qid] = choice;
+    return user_data;
 }
 
 
-function choice_selected(element) {
-
-}
+$(document).ready(function (){
+    updateQuestion(data, 0);
+});
