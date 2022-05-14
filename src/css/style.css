@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+}
+
+body {
+    background-image: url(../images/bg1.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.text_form {
+    font-size: 1.6vw;
+}
+
+.break-text p {
+    word-wrap: break-word;
+}
