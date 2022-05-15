@@ -19,3 +19,7 @@ body {
 .break-text p {
     word-wrap: break-word;
 }
+
+.page-item, .btn-group label{
+    cursor: pointer;
+}
