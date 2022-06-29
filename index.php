@@ -9,81 +9,123 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/mdb/css/mdb.min.css">
   </head>
   <body>
     <div class="container">
-      <center>
       <div class="m-5 p-3 border rounded bg-white">
-        <div><img src="src/images/lg1.png" alt="" srcset="" width="15%"></div>
-        <div><h1>แบบประเมินอาการผิดปกติหลังคลอด</h3></div>
-        <hr>
-        <p>กรุณาเลือกชุดแบบสอบถามที่คุณต้องการ</p>
+        <div class="row justify-content-end">
+          <div class="col-lg-3 text-right mx-0 py-2 ">User : สุดยอดนักคิดเลขช้ามากๆ </div>
+          <div class="col-lg-2 text-left mx-0"><a name="" id="" class="btn btn-warning" href="#" role="button">ออกจากระบบ</a></div>
+        </div>
+        <hr class="divider-horizontal-blurry" />
         <div class="container-fulid">
-          <div class="row px-5 py-3 d-flex justify-content-center text-center">
-          <div class="btn-group-toggle row w-50"  data-toggle="buttons">
-              <?php 
-              $arr_topup = array(
-                100,200,500,1000,3000
-            );
-                  foreach($arr_topup as $key_topup=>$value_topup){ // BEGIN LOOP
-                        $active_state = (isset($default_value) && $default_value==$value_topup)?" btn-info active":"btn-light";
-                        $check_state = (isset($default_value) && $default_value==$value_topup)?" checked":"";
-                        if(isset($default_value) && $default_value==$value_topup && is_null($initial_value)){
-                            $initial_value = true;  
-                        }
-              ?>
-              <label class="btn btn-sm col-4 mt-2 shadow-sm btn-c-topup <?=$active_state?>">
-                <input type="radio" name="topup" id="topup_<?=$key_topup?>" autocomplete="off"
-                value="<?=$value_topup?>" required <?=$check_state?>> <?=number_format($value_topup,0)?>
-              </label>
-              <?php
-                  } // END LOOP
-              ?>
-            </div>       
-            <?php for ($i = 0; $i < 0; $i++) { ?>
-          <!---------------------------------------------------------------->
-          <div class="col-lg-5 btn btn-secondary p-2 text_form mx-4 my-2 text-justify break-text text-center">
-            <p class="m-0">ปวดท้องsdadasadaddsadaddadsddasdasdaddadaassdaddasdasdasd</p>
-          </div>
-          <!---------------------------------------------------------------->
-          <?php }?>
+          <div class="row">
+            <div class="col-lg-6 back">
+            <img src="src/images/banner.png" class="img-fluid row back" alt="" srcset="">
+              <div class="row p-3 bottom-left col-9 back pt-5 mx-5 bg-success bg-opacity-25">
+                  <div class="col-12 text-center p-1 text_header text_font2">
+                    <h2>History board</h2>
+                  </div>
+                  <div class="hr-theme-slash-2 col-12">
+                          <div class="hr-line"></div>
+                          <img src="src/images/lg1.png" class="img-fluid hr-icon" width="10%" alt="" />
+                          <div class="hr-line"></div>
+                        </div>
+                  <div class="col-12 p-3 m-2 row border rounded">
+                      <div class="col-3 py-2"><img src="src/images/plus.png" class="img-fluid w-100" alt=""></div>
+                      <div class="col-9 row">
+                        <div class="row h3 text_font3">
+                            ใช้เวลา 1 วินาที <br> ผิด 0 ข้อ
+                        </div>
+                        
+                        <div class="row">
+                            12/09/2545 13:25 น.
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-12 p-3 m-2 row border rounded">
+                      <div class="col-3 py-2"><img src="src/images/plus.png" class="img-fluid w-100" alt=""></div>
+                      <div class="col-9 row">
+                        <div class="row h3 text_font3">
+                            ใช้เวลา 1 วินาที <br> ผิด 0 ข้อ
+                        </div>
+                        
+                        <div class="row">
+                            12/09/2545 13:25 น.
+                        </div>
+                      </div>
+                  </div>
+
+
+              </div>
+            </div>
+            <div class="col-lg-6 py-5">
+
+              <div class="row my-3">  <!-- /.row -->
+
+                <div class="col-md-6 row mx-auto">
+                  <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50"><img src="src/images/plus.png" class="img-fluid w-100 back" alt=""></div>
+                  <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="#" role="button">
+                    <div class="">
+                      <p class="p-2 m-0">บวก</p>
+                    </div></a>
+                </div>
+                <div class="col-md-6 row mx-auto">
+                  <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50"><img src="src/images/minus.png" class="img-fluid w-100 back" alt=""></div>
+                  <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="#" role="button">
+                    <div class="">
+                      <p class="p-2 m-0">ลบ</p>
+                    </div></a>
+                </div>
+                
+              </div>  <!-- /.row -->
+              <div class="row my-3"> <!-- /.row -->
+                <div class="col-md-6 row mx-auto">
+                    <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50"><img src="src/images/multi.png" class="img-fluid w-100 back" alt=""></div>
+                    <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="#" role="button">
+                    <div class="">
+                      <p class="p-2 m-0">คูณ</p>
+                    </div></a>
+                  </div>
+                  <div class="col-md-6 row mx-auto">
+                    <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50"><img src="src/images/div.png" class="img-fluid w-100 back" alt=""></div>
+                    <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="#" role="button">
+                    <div class="">
+                      <p class="p-2 m-0">หาร</p>
+                    </div></a>
+                  </div>
+              </div>  <!-- /.row -->
+              <div class="row my-3"> <!-- /.row -->
+                <div class="col-md-6 row mx-auto">
+                    <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50 pt-3"><img src="src/images/basic.png" class="img-fluid w-100 back" alt=""></div>
+                    <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="#" role="button">
+                    <div class="">
+                      <p class="p-2 m-0">บวก-ลบ</p>
+                    </div></a>
+                  </div>
+                  <div class="col-md-6 row  mx-auto">
+                    <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50 pt-3"><img src="src/images/advanced.png" class="img-fluid w-100 back" alt=""></div>
+                    <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="#" role="button">
+                    <div class="">
+                      <p class="p-2 m-0">คูณ-หาร</p>
+                    </div></a>
+                  </div>
+              </div>  <!-- /.row -->
+              <div class="row my-3"> <!-- /.row -->
+                <div class="col-md-6 row mx-auto">
+                    <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50 pt-3"><img src="src/images/math.png" class="img-fluid w-100 back" alt=""></div>
+                    <a name="" id="" class="btn col-8 text-center fs-4 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="#" role="button">
+                    <div class="">
+                      <p class="p-2 m-0">บวก-ลบ-คูณ-หาร</p>
+                    </div></a>
+                  </div>
+              </div>  <!-- /.row -->
+            </div>
           </div>
         </div>
-        <div id="clock"></div>
       </div>
-      </center>
     </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script type="text/javascript" >
-        function date_time(id) {
-            date = new Date;
-            year = date.getFullYear();
-            month = date.getMonth();
-            months = new Array('มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม');
-            d = date.getDate();
-            day = date.getDay();
-            days = new Array('อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์');
-            h = date.getHours();
-            if (h < 10) {
-                h = "0" + h;
-            }
-            m = date.getMinutes();
-            if (m < 10) {
-                m = "0" + m;
-            }
-            s = date.getSeconds();
-            if (s < 10) {
-                s = "0" + s;
-            }
-            result = 'วัน' + days[day] + ' ' + d + ' ' + months[month] + ' ' + (year+543) + ' - ' + h + ':' + m + ':' + s +' น.';
-            document.getElementById(id).innerHTML = result;
-            setTimeout('date_time("' + id + '");', '1000');
-            return true;
-        }
-
-        date_time("clock");
-    </script></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

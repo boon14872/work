@@ -1,19 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
 
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Kanit', sans-serif;
 }
 
 body {
     background-image: url(../images/bg1.jpg);
     background-repeat: no-repeat;
     background-size: auto;
+    font-family: 'Kanit', sans-serif;
 }
 
 .text_form {
-    font-size: 1.6vw;
+    font-size: 2.2vw;
 }
 
 .break-text p {
@@ -22,4 +25,53 @@ body {
 
 .page-item, .btn-group label{
     cursor: pointer;
+}
+.disabled{
+    cursor: default;
+}
+.item {
+    background-color: rgb(238, 95, 95);
+}
+.bottom-left {
+    bottom: 3vw;
+    left: 0vw;
+    z-index: 1;
+}
+img {
+    z-index: 1000;
+}
+.back {
+    position: relative;
+}
+.hr-theme-slash-2 {
+    display: flex;
+}
+.hr-line {
+    width: 100%;
+    position: relative;
+    margin: 15px;
+    border-bottom: 1px solid #000;
+}
+.hr-icon {
+    position: relative;
+    top: 3px;
+    color: #ff0000;
+}
+.text_font2 {
+    font-family: 'Shrikhand', sans-serif;
+}
+.text_font3 {
+    font-family: 'Itim', sans-serif;
+}
+.text_header {
+    color: darkorchid;
+}
+.img_left {
+    left: 2vw;
+    top: 0.5vw;
+    z-index: 1;
+}
+a {
+    text-decoration: none;
+    color: black;
 }

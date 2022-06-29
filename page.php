@@ -7,66 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="" crossorigin="anonymous">
     <link rel="stylesheet" href="src/css/style.css">
-    
+    <link rel="stylesheet" href="src/mdb/css/mdb.min.css">
   </head>
   <body>
     <div class="container">
       <center>
       <div class="m-5 p-3 border rounded bg-white">
         <div><img src="src/images/lg1.png" alt="" srcset="" width="15%"></div>
-        <div><h3>แบบประเมินความผิดปกติของเต้านม</h3></div>
+        <div><h3>คณิตคิดเลขไว</h3></div>
         <hr>
         <h3 class="row" id="questions">
-            <div class="col-2">คำถามที่ : 1 </div>
-            <div class="col-9 text-left">เวลาให้นมลูกมีอาการปวด บวม ของเต้านมบ้างส่วน ซึ่งอาจเกิดจาก อุดตันของท่อน้ำนม โดยทำให้เต้านมอักเสบได้</div>
+            <div class="col text-break fs-1">9999 + 9999</div>
         </h3>
         <div class="container-fulid">
-          <div class="row px-5 py-3 d-flex justify-content-center text-center btn-group btn-group-toggle" id="choices_box" data-toggle="buttons">
-            
+            <div class="row justify-content-center text-center px-5">
+              <div class="px-5">
+                <div class="btn btn-sm btn-outline-secondary waves-effect col-lg-5 my-1 shadow-sm fs-3 py-4 " id="1">
+                  1998
+                </div>
+                <div class="btn btn-sm btn-outline-secondary waves-effect col-lg-5 my-1 shadow-sm fs-3 py-4 " id="2">
+                  1998
+                </div>
+                <div class="btn btn-sm btn-outline-secondary waves-effect col-lg-5 my-1 shadow-sm fs-3 py-4 " id="3">
+                  1998
+                </div>
+                <div class="btn btn-sm btn-outline-secondary waves-effect col-lg-5 my-1 shadow-sm fs-3 py-4 " id="4">
+                  1998
+                </div>
+              </div>
+            </div>
           </div>
-          <nav aria-label="..." class="d-flex justify-content-center text-center ">
+          <nav aria-label="pageination" class="d-flex justify-content-center text-center ">
             <ul class="pagination">
               
             </ul>
           </nav>
         </div>
-        <div id="clock"></div>
-      </div>
       </center>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script type="text/javascript" >
-        function date_time(id) {
-            date = new Date;
-            year = date.getFullYear();
-            month = date.getMonth();
-            months = new Array('มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม');
-            d = date.getDate();
-            day = date.getDay();
-            days = new Array('อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์');
-            h = date.getHours();
-            if (h < 10) {
-                h = "0" + h;
-            }
-            m = date.getMinutes();
-            if (m < 10) {
-                m = "0" + m;
-            }
-            s = date.getSeconds();
-            if (s < 10) {
-                s = "0" + s;
-            }
-            result = 'วัน' + days[day] + ' ' + d + ' ' + months[month] + ' ' + (year+543) + ' - ' + h + ':' + m + ':' + s +' น.';
-            document.getElementById(id).innerHTML = result;
-            setTimeout('date_time("' + id + '");', '1000');
-            return true;
-        }
-
-        date_time("clock");
-    </script></script>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
