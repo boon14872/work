@@ -1,4 +1,5 @@
-var data_raw = [{
+var data_raw = {
+    "id" : "0",
     "header": "plus",
     "data" : [
     {
@@ -97,11 +98,12 @@ var data_raw = [{
             }
         ]
     },
-]}];
+]};
 
-var data = data_raw[0].data;  // data for use
+var data = data_raw.data;  // data for use
 var data_length = data.length; // length of data
 var number = 0; // number now of question
+var data_send = {"id" : data_raw.id,"data" : []}; // data for sending with set of question id
 
 $(document).ready(function (){
     updateq(data, number); // update first question
@@ -111,10 +113,14 @@ $(document).ready(function (){
             return; // do nothing
         }
         number++; // increment number
+        var data_click = {
+            "id" : number,
+            "data" : this.id
+        };
+        data_send.data.push(data_click);
         updateq(data, number); // update question
     });
 });
-
 
 // function for update question and choices
 function updateq(data, id) {

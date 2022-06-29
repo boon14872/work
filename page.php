@@ -17,18 +17,18 @@
         <div><img src="src/images/plus.png" class="img-fulid text-center" id="header_img" srcset="" width="15%"></div>
         <hr>
             <div class="col text-break fs-1 row justify-content-center text-center m-0" id="header">
-              <div class="bg-secondary col-3 m-3 p-2 bg-opacity-25 rounded-pill" id="first_number">100</div>
+              <div class="bg-secondary col-3 m-3 p-2 bg-opacity-25 rounded-pill" id="first_number"></div>
               <div class="bg-primary col-1 m-3 p-2 bg-opacity-25 rounded-pill" id="operator">+</div>
-              <div class="bg-secondary col-3 m-3 p-2 bg-opacity-25 rounded-pill" id="last_number">50</div>
+              <div class="bg-secondary col-3 m-3 p-2 bg-opacity-25 rounded-pill" id="last_number"></div>
             </div>
         <div class="container-fulid">
             <div class="row justify-content-center text-center px-5">
 
             <div class=" shadow-0 row justify-content-center" id="choice_box">
-              <button type="button" class="btn btn-outline-success col-lg-5 py-4 rounded-0 m-1 fs-2 bg-opacity-50 text-dark" id="0">191</button>
-              <button type="button" class="btn btn-outline-success col-lg-5 py-4 rounded-0 m-1 fs-2 bg-opacity-50 text-dark" id="1">222</button>
-              <button type="button" class="btn btn-outline-success col-lg-5 py-4 rounded-0 m-1 fs-2 bg-opacity-50 text-dark" id="2">10</button>
-              <button type="button" class="btn btn-outline-success col-lg-5 py-4 rounded-0 m-1 fs-2 bg-opacity-50 text-dark" id="3">8989899</button>
+              <button type="button" class="btn btn-outline-success col-lg-5 py-4 rounded-0 m-1 fs-2 bg-opacity-50 text-dark" id="0"></button>
+              <button type="button" class="btn btn-outline-success col-lg-5 py-4 rounded-0 m-1 fs-2 bg-opacity-50 text-dark" id="1"></button>
+              <button type="button" class="btn btn-outline-success col-lg-5 py-4 rounded-0 m-1 fs-2 bg-opacity-50 text-dark" id="2"></button>
+              <button type="button" class="btn btn-outline-success col-lg-5 py-4 rounded-0 m-1 fs-2 bg-opacity-50 text-dark" id="3"></button>
             </div>
 
             </div>
