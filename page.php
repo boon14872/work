@@ -12,40 +12,39 @@
     <link rel="stylesheet" href="src/mdb/css/mdb.min.css">
   </head>
   <body>
-    <div class="container">
-      <center>
-      <div class="m-5 p-3 border rounded bg-white">
-        <div><img src="src/images/lg1.png" alt="" srcset="" width="15%"></div>
-        <div><h3>คณิตคิดเลขไว</h3></div>
+    <div class="container text_font3 py-3">
+      <div class="m-5 p-3 border rounded bg-white pb-0 px-0 text-center">
+        <div><img src="src/images/plus.png" class="img-fulid text-center" id="header_img" srcset="" width="15%"></div>
         <hr>
-        <h3 class="row" id="questions">
-            <div class="col text-break fs-1">9999 + 9999</div>
-        </h3>
+            <div class="col text-break fs-1 row justify-content-center text-center m-0" id="header">
+              <div class="bg-secondary col-3 m-3 p-2 bg-opacity-25 rounded-pill" id="first_number">100</div>
+              <div class="bg-primary col-1 m-3 p-2 bg-opacity-25 rounded-pill" id="operator">+</div>
+              <div class="bg-secondary col-3 m-3 p-2 bg-opacity-25 rounded-pill" id="last_number">50</div>
+            </div>
         <div class="container-fulid">
             <div class="row justify-content-center text-center px-5">
-              <div class="px-5">
-                <div class="btn btn-sm btn-outline-secondary waves-effect col-lg-5 my-1 shadow-sm fs-3 py-4 " id="1">
-                  1998
-                </div>
-                <div class="btn btn-sm btn-outline-secondary waves-effect col-lg-5 my-1 shadow-sm fs-3 py-4 " id="2">
-                  1998
-                </div>
-                <div class="btn btn-sm btn-outline-secondary waves-effect col-lg-5 my-1 shadow-sm fs-3 py-4 " id="3">
-                  1998
-                </div>
-                <div class="btn btn-sm btn-outline-secondary waves-effect col-lg-5 my-1 shadow-sm fs-3 py-4 " id="4">
-                  1998
-                </div>
-              </div>
+
+            <div class=" shadow-0 row justify-content-center" id="choice_box">
+              <button type="button" class="btn btn-outline-success col-lg-5 py-4 rounded-0 m-1 fs-2 bg-opacity-50 text-dark" id="0">191</button>
+              <button type="button" class="btn btn-outline-success col-lg-5 py-4 rounded-0 m-1 fs-2 bg-opacity-50 text-dark" id="1">222</button>
+              <button type="button" class="btn btn-outline-success col-lg-5 py-4 rounded-0 m-1 fs-2 bg-opacity-50 text-dark" id="2">10</button>
+              <button type="button" class="btn btn-outline-success col-lg-5 py-4 rounded-0 m-1 fs-2 bg-opacity-50 text-dark" id="3">8989899</button>
+            </div>
+
             </div>
           </div>
-          <nav aria-label="pageination" class="d-flex justify-content-center text-center ">
-            <ul class="pagination">
-              
-            </ul>
-          </nav>
+          <div class="pt-5">
+            <div class="progress" id="progress_bar">
+              <div
+                class="progress-bar progress-bar-striped bg-danger"
+                role="progressbar"
+                style="width: 10%;height: 100%;"
+                aria-valuenow="0"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
         </div>
-      </center>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
