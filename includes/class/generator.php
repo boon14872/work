@@ -1,4 +1,5 @@
 <?php
+    // generator.php
     class number {
         public $number1;
         public $number2;

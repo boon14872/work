@@ -1,5 +1,5 @@
 <?php
-//dbconnect.php
+    //dbconnect.php
     class Dbconnect
     {
         public function connect()

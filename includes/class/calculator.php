@@ -1,4 +1,5 @@
 <?php
+    // calculator.php
     class Calculator
     {
         var $a;
@@ -21,7 +22,7 @@
                 break;
 
                 case '/':
-                return $this->a / $this->b;
+                return intval($this->a / $this->b);
                 break;
 
                 default:

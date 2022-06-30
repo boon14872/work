@@ -1,5 +1,5 @@
 <?php
-//init.php
+    //init.php
     require 'class/dbconnect.php';
     require 'class/user.php';
     require 'class/generator.php';

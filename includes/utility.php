@@ -1,5 +1,15 @@
 <?php
+    // utility.php
     include('init.php');
+    function createchoice($answer,int $num_of_ch = 3) {
+        $choice = [$answer];
+        for ($i = 0; $i < $num_of_ch; $i++) {
+            $num = $number = rand(10, 100);
+            rand(0,1) ? array_push($choice, $answer+$num) : array_push($choice, $answer-$num);
+        }
+        shuffle($choice);
+        return $choice;
+    }
     function question(string $operator,object $obj, object $cal, int $count = 10) {
         $data = array();
         if ($operator == "plus") {
@@ -7,6 +17,7 @@
                 $quest = $obj->plus();
                 $quest->id = $i;
                 $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
+                $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
         }
@@ -22,6 +33,7 @@
                 $quest = $obj->minus();
                 $quest->id = $i;
                 $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
+                $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
         }
@@ -30,6 +42,7 @@
                 $quest = $obj->multi();
                 $quest->id = $i;
                 $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
+                $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
         }
@@ -38,6 +51,7 @@
                 $quest = $obj->div();
                 $quest->id = $i;
                 $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
+                $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
         }
@@ -54,6 +68,8 @@
                     $quest->id = $i;
                     $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
                 }
+                
+                $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
         }
@@ -69,7 +85,8 @@
                     $quest = $obj->div();
                     $quest->id = $i;
                     $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
-                }
+                }  
+                $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
         }
@@ -96,13 +113,13 @@
                     $quest->id = $i;
                     $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
                 }
+                $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
         }
         else {
             return false;
         }
-        
         return $data;
     }
     
