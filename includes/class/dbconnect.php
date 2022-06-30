@@ -1,6 +1,6 @@
 <?php
 //dbconnect.php
-    class dbconnect
+    class Dbconnect
     {
         public function connect()
         {

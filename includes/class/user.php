@@ -1,6 +1,6 @@
 <?php
 //user.php
-class user
+class User
 {
     protected $db;
     public function __construct($dbconn)
