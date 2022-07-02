@@ -17,7 +17,7 @@
         public function plus() {
             $number = $this->random_number(30, 30, 1, 1);
             $data = new number();
-            $data->operetor = '+';
+            $data->operator = '+';
             $data->number1 = $number->number1;
             $data->number2 = $number->number2;
             return $data;
@@ -26,7 +26,7 @@
         public function minus() {
             $number = $this->random_number(30, 10, 10, 30);
             $data = new number();
-            $data->operetor = '-';
+            $data->operator = '-';
             $data->number1 = $number->number1;
             $data->number2 = $number->number2;
             return $data;
@@ -35,7 +35,7 @@
         public function multi() {
             $number = $this->random_number(10, 10);
             $data = new number();
-            $data->operetor = '*';
+            $data->operator = '*';
             $data->number1 = $number->number1;
             $data->number2 = $number->number2;
             return $data;
@@ -44,7 +44,7 @@
         public function div() {
             $number = $this->random_number(100, 1, 100, 1);
             $data = new number();
-            $data->operetor = '/';
+            $data->operator = '/';
             $data->number1 = $number->number1;
             $data->number2 = $number->number2;
             return $data;

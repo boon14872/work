@@ -7,7 +7,7 @@ class User
     {
         $this->db = $dbconn;
     }
-    /*
+
     public function register($email,$pass,$name)
     {
         $t_email = trim($email);
@@ -36,7 +36,7 @@ class User
             return ['error'=>'email นี้มีการใช้งานแล้ว'];
         }
     }
-    */
+
     public function login($email,$pass)
     {
         $t_email = trim($email);
@@ -46,15 +46,13 @@ class User
         $check->execute([$t_email]);
         if($check->rowCount() == 1)
         {
-            $user = $check->fetch();
-            if(password_verify($t_pass,$user['pass']))
+            $user = $check->fetch(PDO::FETCH_OBJ);
+            if(password_verify($t_pass,$user->password))
             {
-                $_SESSION['bweb'] = [
-                    'uid' => $user['uid'],
-                    'email' =>$user['email'],
-                    'name' =>$user['name'],
-                    'profile'=>$user['profile'],
-                    'stats'=>$user['stats']
+                $_SESSION['games'] = [
+                    'uid' => $user->uid,
+                    'email' =>$user->email,
+                    'name' =>$user->name
                 ];
                 header('location:home.php');
             }
@@ -68,13 +66,14 @@ class User
             return ['error'=>'ไม่อีเมลนี้ในระบบ'];
         }
     }
+    
     public function getname($uid)
     {
         $sql = "SELECT name from user where uid = ?";
         $find = $this->db->prepare($sql);
         $find->execute([$uid]);
-        $user = $find->fetch();
-        return $user['name'];
+        $user = $find->fetch(PDO::FETCH_OBJ);
+        return $user->name;
     }
 }
 

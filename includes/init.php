@@ -4,6 +4,7 @@
     require 'class/user.php';
     require 'class/generator.php';
     require 'class/calculator.php';
+    require 'class/questions.php';
 
     session_start();
     $db_obj = new Dbconnect();
@@ -11,5 +12,5 @@
     $user_obj = new User($dbconn);
     $gen_obj = new Generatequestion();
     $cal_obj = new Calculator();
-
+    $questionregis_obj = new QuestionsRegis($dbconn);
 ?>

@@ -16,7 +16,7 @@
             for ($i=0; $i < $count; $i++) { 
                 $quest = $obj->plus();
                 $quest->id = $i;
-                $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
+                $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operator);
                 $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
@@ -32,7 +32,7 @@
             for ($i=0; $i < $count; $i++) { 
                 $quest = $obj->minus();
                 $quest->id = $i;
-                $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
+                $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operator);
                 $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
@@ -41,7 +41,7 @@
             for ($i=0; $i < $count; $i++) { 
                 $quest = $obj->multi();
                 $quest->id = $i;
-                $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
+                $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operator);
                 $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
@@ -50,7 +50,7 @@
             for ($i=0; $i < $count; $i++) { 
                 $quest = $obj->div();
                 $quest->id = $i;
-                $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
+                $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operator);
                 $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
@@ -61,14 +61,12 @@
                 if ($ran == 1) {
                     $quest = $obj->plus();
                     $quest->id = $i;
-                    $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
                 }
                 else if ($ran == 2) {
                     $quest = $obj->minus();
                     $quest->id = $i;
-                    $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
                 }
-                
+                $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operator);
                 $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
@@ -79,13 +77,12 @@
                 if ($ran == 1) {
                     $quest = $obj->multi();
                     $quest->id = $i;
-                    $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
                 }
                 else if ($ran == 2) {
                     $quest = $obj->div();
                     $quest->id = $i;
-                    $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
-                }  
+                } 
+                $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operator);
                 $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
@@ -96,23 +93,20 @@
                 if ($ran == 1) {
                     $quest = $obj->plus();
                     $quest->id = $i;
-                    $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
                 }
                 else if ($ran == 2) {
                     $quest = $obj->minus();
                     $quest->id = $i;
-                    $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
                 }
                 else if ($ran == 3) {
                     $quest = $obj->multi();
                     $quest->id = $i;
-                    $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
                 }
                 else if ($ran == 4) {
                     $quest = $obj->div();
                     $quest->id = $i;
-                    $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operetor);
                 }
+                $quest->answer = $cal->getresult($quest->number1, $quest->number2, $quest->operator);
                 $quest->choice = createchoice($quest->answer);
                 array_push($data, $quest);
             }
