@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="stylesheet" href="src/mdb/css/mdb.min.css">
 
@@ -32,7 +33,7 @@
         <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
 
-            <form action="process.php" method="post">
+            <form action="#" method="post" id="FormLogin">
             <input type="hidden" name="action" value="login">
             <!-- Email input -->
             <div class="form-outline mb-4">
@@ -64,8 +65,8 @@
             </form>
         </div>
         <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register">
-        <form action="process.php" method="post">
-            <input type="hidden" name="action" value="regiser">
+        <form action="#" method="post" id="FormReister">
+            <input type="hidden" name="action" value="register">
             <!-- Email input -->
             <div class="form-outline mb-4">
                 <input type="email" id="registerEmail" class="form-control" name="registerEmail" required />
@@ -106,6 +107,8 @@
         </div>
         </div>
         <!-- Pills content -->
+        <div>
+
         </div>
     </div>
     <!-- Optional JavaScript -->
@@ -114,6 +117,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+    
     <script>
         $(document).ready(function() {
             $('div.form-outline').each(function(i, e) {
@@ -132,8 +137,35 @@
                         return true;
                     });
                 });
-                
+            
+            $('#FormLogin').on('submit', (e) => {
+                e.preventDefault();
+                var serializedData= $("#FormLogin").serialize();
+                $.post('process.php',serializedData,(data) => {
+                    if (data == 1) {
+                        window.location.replace('index.php');
+                    }
+                    else {
+                        bootbox.alert(data);
+                    }
+                });
             });
+            $('#FormReister').on('submit', (e) => {
+                e.preventDefault();
+                var serializedData= $("#FormReister").serialize();
+                $.post('process.php',serializedData,(data) => {
+                    if (data == 1) {
+                        bootbox.alert("กรุณาล็อคอิน", () => {
+                            window.location.replace('login.php');
+                        });
+                    }
+                    else {
+                        bootbox.alert(data);
+                    }
+                });
+            });
+            
+        });
     </script>
   </body>
 </html>

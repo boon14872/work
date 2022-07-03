@@ -19,11 +19,11 @@ class User
         if($check->rowCount() == 0)
         {
             $newpass = password_hash($t_pass,PASSWORD_DEFAULT);
-            $sql = "INSERT INTO user(email,pass,name) VALUES(?,?,?)";
+            $sql = "INSERT INTO user(email,password,name) VALUES(?,?,?)";
             $regis = $this->db->prepare($sql);
             if($regis->execute([$t_email,$newpass,$t_name]))
             {
-                header('location:logout.php');
+                return true;
             }
             else
             {
@@ -54,7 +54,7 @@ class User
                     'email' =>$user->email,
                     'name' =>$user->name
                 ];
-                header('location:home.php');
+                return true;
             }
             else
             {

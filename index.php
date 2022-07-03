@@ -1,4 +1,12 @@
+<?php
+include 'includes/init.php';
+  if (!isset($_SESSION['games'])) {
+    header('location:login.php');
+  }
+?>
+
 <!doctype html>
+
 <html lang="en">
   <head>
     <title>Home</title>
@@ -15,8 +23,8 @@
     <div class="container">
       <div class="m-5 p-3 border rounded bg-white">
         <div class="row justify-content-end">
-          <div class="col-lg-3 text-right mx-0 py-2 ">User : สุดยอดนักคิดเลขช้ามากๆ </div>
-          <div class="col-lg-2 text-left mx-0"><a name="" id="" class="btn btn-warning" href="#" role="button" onClick="return confirm('คุณต้องการออกจากระบบใช่หรือไม่');">ออกจากระบบ</a></div>
+          <div class="col-lg-3 text-right mx-0 py-2 ">User : <?php echo $_SESSION["games"]["name"]; ?> </div>
+          <div class="col-lg-2 text-left mx-0"><a name="" id="" class="btn btn-warning" href="#" role="button" onClick="confirmb('คุณต้องการออกจากระบบใช่หรือไม่')">ออกจากระบบ</a></div>
         </div>
         <hr class="divider-horizontal-blurry" />
         <div class="container-fulid">
@@ -129,5 +137,15 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+    <script>
+      function confirmb(text) {
+          bootbox.confirm(text, function(result){ 
+              if (result) {
+                window.location.href = 'logout.php';
+              }
+          });
+      }
+    </script>
   </body>
 </html>
