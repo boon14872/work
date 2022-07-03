@@ -40,31 +40,10 @@ include 'includes/init.php';
                           <img src="src/images/lg1.png" class="img-fluid hr-icon" width="10%" alt="" />
                           <div class="hr-line"></div>
                         </div>
-                  <div class="col-12 p-3 m-2 row border rounded">
-                      <div class="col-3 py-2"><img src="src/images/plus.png" class="img-fluid w-100" alt=""></div>
-                      <div class="col-9 row">
-                        <div class="row h3 text_font3">
-                            ใช้เวลา 1 วินาที <br> ผิด 0 ข้อ
-                        </div>
-                        
-                        <div class="row">
-                            12/09/2545 13:25 น.
-                        </div>
-                      </div>
-                  </div>
-                  <div class="col-12 p-3 m-2 row border rounded">
-                      <div class="col-3 py-2"><img src="src/images/plus.png" class="img-fluid w-100" alt=""></div>
-                      <div class="col-9 row">
-                        <div class="row h3 text_font3">
-                            ใช้เวลา 1 วินาที <br> ผิด 0 ข้อ
-                        </div>
-                        
-                        <div class="row">
-                            12/09/2545 13:25 น.
-                        </div>
-                      </div>
-                  </div>
 
+                  <div id="logdata" class="logdataoverflow">
+
+                  </div>
 
               </div>
             </div>
@@ -122,7 +101,7 @@ include 'includes/init.php';
               </div>  <!-- /.row -->
               <div class="row my-3"> <!-- /.row -->
                 <div class="col-md-6 row mx-auto">
-                    <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50 pt-3"><img src="src/images/math.png" class="img-fluid w-100 back" alt=""></div>
+                    <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50 pt-3"><img src="src/images/all.png" class="img-fluid w-100 back" alt=""></div>
                     <a name="" id="" class="btn col-8 text-center fs-4 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="page.php?request=all" role="button">
                     <div class="">
                       <p class="p-2 m-0">บวก-ลบ-คูณ-หาร</p>
@@ -134,18 +113,13 @@ include 'includes/init.php';
         </div>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
-    <script>
-      function confirmb(text) {
-          bootbox.confirm(text, function(result){ 
-              if (result) {
-                window.location.href = 'logout.php';
-              }
-          });
-      }
-    </script>
+    <?php
+      echo "<script>var uid = ".$_SESSION['games']['uid'].";</script>";
+    ?>
+    <script src="src/js/indexscript.js"></script>
   </body>
 </html>

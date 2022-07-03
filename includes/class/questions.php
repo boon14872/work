@@ -64,25 +64,31 @@ class QuestionsRegis
         return false;
     }
 
-    public function getquestion($qset_id) {
+    public function getquestion($qset_id, $getdata = true) {
         $sql = "Select * from questions_set where q_id = ?";
         $q = $this->db->prepare($sql);
         if ($q->execute([$qset_id])) {
-            $data_q = $this->getquestion_detail($qset_id);
-            $qs = $q->fetch(PDO::FETCH_OBJ);
-            $data = new stdClass();
-            $data->q_id = $qs->q_id;
-            $data->q_create_by = $qs->q_create_by;
-            $data->q_create_at = $qs->q_create_at;
-            $data->q_detail = $qs->q_detail;
-            $data->data = $data_q;
-            $data->length = count((array)$data_q);
-            return $data;
+            if ($getdata) {
+                $data_q = $this->getquestion_detail($qset_id);
+                $qs = $q->fetch(PDO::FETCH_OBJ);
+                $data = new stdClass();
+                $data->q_id = $qs->q_id;
+                $data->q_create_by = $qs->q_create_by;
+                $data->q_create_at = $qs->q_create_at;
+                $data->q_detail = $qs->q_detail;
+                $data->data = $data_q;
+                $data->length = count((array)$data_q);
+                return $data;
+            }
+            else {
+                return $q->fetch(PDO::FETCH_OBJ);
+            }
+            
         }
         return false;
     }
 
-    public function log_save($qset_id, $uid) {
+    public function log_save($qset_id, $uid, $time, $ctrue, $cfalse) {
         $c_sql = "select * from history_log where q_id = ? and uid = ?";
         $check = $this->db->prepare($c_sql);
         if ($check->execute([$qset_id, $uid])) {
@@ -90,16 +96,16 @@ class QuestionsRegis
                 return true;
             }
         }
-        $sql = "Insert into history_log(q_id, uid) values(?, ?)";
+        $sql = "Insert into history_log(q_id, uid, time, count_true, count_false) values(?, ?, ?, ?, ?)";
         $log = $this->db->prepare($sql);
-        if ($log->execute([$qset_id, $uid])) {
+        if ($log->execute([$qset_id, $uid, $time, $ctrue, $cfalse])) {
             return true;
         }
         return false;
     }
 
     public function log_get($uid) {
-        $sql = "Select * from history_log where uid = ?";
+        $sql = "Select * from history_log where uid = ? ORDER BY id DESC";
         $q = $this->db->prepare($sql);
         if ($q->execute([$uid])) {
             return $q->fetchAll(PDO::FETCH_OBJ);

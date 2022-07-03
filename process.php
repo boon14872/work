@@ -92,17 +92,37 @@
                     </div>
                     <?php
                 }
-                if (!$questionregis_obj->log_save($data->id, $_SESSION['games']['uid'])) {
+                if (!$questionregis_obj->log_save($data->id, $_SESSION['games']['uid'], $data->time, $data_true_count, $data_false_count)) {
                     echo "log not saved";
                 }
-
+                ?>
+                <script>
+                    var data_true_count = <?php echo $data_true_count;?>;
+                    var data_false_count = <?php echo $data_false_count;?>;
+                </script>
+                <?php
             }
-            ?>
-            <script>
-                var data_true_count = <?php echo $data_true_count;?>;
-                var data_false_count = <?php echo $data_false_count;?>;
-            </script>
-            <?php
+
+            if ($_POST["action"] == "log") {
+                $log = $questionregis_obj->log_get($_POST['uid']);
+                foreach ($log as $key => $value) {
+                    $detail = $questionregis_obj->getquestion($value->q_id, false);
+                    ?>
+                    <div class="col-12 p-2 m-1 row border border-dark rounded">
+                        <div class="col-3 py-2"><img src="src/images/<?php echo $detail->q_detail;?>.png" class="img-fluid w-100" alt=""></div>
+                        <div class="col-9 row">
+                            <div class="row h3 text_font3">
+                                ใช้เวลา <?php echo $value->time;?> วินาที <br> ถูก <?php echo $value->count_true;?> ข้อ ผิด <?php echo $value->count_false;?>ข้อ
+                            </div>
+                            
+                            <div class="row">
+                                <?php echo $value->date;?> น.
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
         }
 
     }
