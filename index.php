@@ -24,7 +24,7 @@ include 'includes/init.php';
       <div class="m-5 p-3 border rounded bg-white">
         <div class="row justify-content-end">
           <div class="col-lg-3 text-right mx-0 py-2 ">User : <?php echo $_SESSION["games"]["name"]; ?> </div>
-          <div class="col-lg-2 text-left mx-0"><a name="" id="" class="btn btn-warning" href="#" role="button" onClick="confirmb('คุณต้องการออกจากระบบใช่หรือไม่')">ออกจากระบบ</a></div>
+          <div class="col-lg-2 text-right mx-0"><a name="" id="" class="btn btn-warning" href="#" role="button" onClick="confirmb('คุณต้องการออกจากระบบใช่หรือไม่')">ออกจากระบบ</a></div>
         </div>
         <hr class="divider-horizontal-blurry" />
         <div class="container-fulid">

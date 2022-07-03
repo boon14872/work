@@ -42,34 +42,23 @@ include 'includes/init.php';
                 </div>
             </div>
 
-            <div class="row text-center shadow-1 rounded my-1 p-1 bg-primary bg-opacity-50 justify-content-center">
-                <div class="col-lg-1 my-auto">
-                    1
-                </div>
-                <div class="col-lg-3 my-auto">
-                    1000-10
-                </div>
-                <div class="col-lg-6 row my-auto text-white">
-                    <div class="col bg-danger bg-opacity-50 m-1 p-2 rounded">100</div>
-                    <div class="col bg-dark bg-opacity-50 m-1 p-2 rounded">200</div>
-                    <div class="col bg-dark bg-opacity-50 m-1 p-2 rounded">300</div>
-                    <div class="col bg-dark bg-opacity-50 m-1 p-2 rounded">400</div>
-                </div>
-                <div class="col-lg-2 my-auto bg-success bg-opacity-100 m-1 p-2 rounded text-white">
-                    ถูก
-                </div>
+            <div id="result">
+
             </div>
 
-            <div class="row text-center shadow-1 rounded my-1 p-0 justify-content-center">
+            <div class="row text-center shadow-1 rounded my-1 p-0 justify-content-center fs-4">
                 <div class="col-lg-6 bg-info bg-opacity-50 p-0 m-0 rounded-left p-1">
-                    เวลา : 20 วินาที
+                    เวลา : <span id="time_count"></span> วินาที
                 </div>
                 <div class="col-lg-6 row p-0 m-0">
-                    <div class="col bg-success bg-opacity-50 p-1">ถูก 6 ข้อ</div>
-                    <div class="col bg-danger bg-opacity-50 p-1 rounded-right">ผิด 6 ข้อ</div>
+                    <div class="col bg-success bg-opacity-50 p-1">ถูก <span id="truecount" class="m-0 p-0"></span> ข้อ</div>
+                    <div class="col bg-danger bg-opacity-50 p-1 rounded-right">ผิด <span id="falsecount" class="m-0 p-0"></span> ข้อ</div>
                 </div>
             </div>
-
+            <div class="p-3 text-center">
+                <a name="" id="" class="btn btn-success fs-3" href="index.php" role="button">หน้าหลัก</a>
+                <a name="" id="retry" class="btn btn-secondary fs-3" href="" role="button">เล่นอีกครั้ง</a>
+            </div>
         </div>
       </div>
     </div>
@@ -80,6 +69,8 @@ include 'includes/init.php';
     <script>
     var questions = sessionStorage.games_data_question;
     var data_send = sessionStorage.games_data_send;
+    var true_count = 0;
+    var false_count = 0;
     $(document).ready(function() {
         request = $.ajax({
             url: "process.php",
@@ -87,8 +78,16 @@ include 'includes/init.php';
             data: {action : 'result', questions: questions, data: data_send},
         });
         request.done(function(response, textStaus) {
-            console.log(textStaus);
-            console.log(response);
+            $('div#result').html(response);
+            true_count = data_true_count;
+            false_count = data_false_count;
+            $('span#truecount').html(true_count);
+            $('span#falsecount').html(false_count);
+            $('span#time_count').html(JSON.parse(sessionStorage.games_data_send).time);
+            var retry = 'page.php?request='+JSON.parse(sessionStorage.games_data_question).q_detail;
+            $('div > a#retry').attr('href', retry);
+            // console.log(textStaus);
+            // console.log(response);
         });
     });
 </script>

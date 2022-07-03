@@ -83,11 +83,19 @@ class QuestionsRegis
     }
 
     public function log_save($qset_id, $uid) {
-        $sql = "Insert into history_log(qset_id, uid) values(?, ?)";
+        $c_sql = "select * from history_log where q_id = ? and uid = ?";
+        $check = $this->db->prepare($c_sql);
+        if ($check->execute([$qset_id, $uid])) {
+            if ($check->rowCount() > 0) {
+                return true;
+            }
+        }
+        $sql = "Insert into history_log(q_id, uid) values(?, ?)";
         $log = $this->db->prepare($sql);
         if ($log->execute([$qset_id, $uid])) {
             return true;
         }
+        return false;
     }
 
     public function log_get($uid) {

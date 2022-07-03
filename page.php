@@ -25,7 +25,7 @@ include 'includes/init.php';
   <body>
     <div class="container text_font3 py-3">
       <div class="m-5 p-3 border rounded bg-white pb-0 px-0 text-center">
-        <div><img src="src/images/plus.png" class="img-fulid text-center" id="header_img" srcset="" width="15%"></div>
+        <div><img src="src/images/<?php echo $_GET['request'];?>.png" class="img-fulid text-center" id="header_img" srcset="" width="15%"></div>
         <hr>
             <div class="col text-break fs-1 row justify-content-center text-center m-0" id="header">
               <div class="bg-secondary col-3 m-3 p-2 bg-opacity-25 rounded-pill" id="first_number"></div>

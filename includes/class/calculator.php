@@ -36,12 +36,5 @@
             return $this->checkopration($c);
         }
 
-        function checkanswer ($answer, $choice) {
-            $data = new stdClass();
-            $data->answer = $answer;
-            $data->choice = $choice;
-            $data->result = $answer == $choice ? true : false;
-            return $data;
-        }
     }
 ?>

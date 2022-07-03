@@ -37,18 +37,19 @@ request.done(function (response, textStatus){
             if (number > data_length-1) { // check if question end
                 return; // do nothing
             }
-            number++; // increment number
+            ++number; // increment number
             // add click data to data object
             var data_click = {
                 "id" : number,
                 "data" : $(this).text()
             };
             data_send.data.push(data_click);
-            if (number == data_length-1) {
+            if (number == data_length) {
                 data_send.time = totalSeconds;
                 sessionStorage.setItem('games_data_send', JSON.stringify(data_send)); // set data to sessionStorage
                 sessionStorage.setItem('games_data_question', JSON.stringify(data_raw)); //set data to sessionStorage
                 window.location.replace('result.php');
+                return;
             }
             updateq(data, number); // update question
         });
