@@ -1,3 +1,14 @@
+<?php
+include 'includes/init.php';
+  if (!isset($_SESSION['games'])) {
+    header('location:logout.php');
+  }
+  if (!isset($_GET['request'])) {
+    header('location:index.php');
+  }
+  echo '<script>var uid = "'.$_SESSION['games']['uid'].'";var request = "'.$_GET['request'].'"</script>';
+?>
+
 <!doctype html>
 <html lang="en">
   <head>

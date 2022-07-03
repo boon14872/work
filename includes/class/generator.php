@@ -33,7 +33,7 @@
         }
 
         public function multi() {
-            $number = $this->random_number(10, 10);
+            $number = $this->random_number(1, 1);
             $data = new number();
             $data->operator = '*';
             $data->number1 = $number->number1;
@@ -42,7 +42,7 @@
         }
 
         public function div() {
-            $number = $this->random_number(100, 1, 100, 1);
+            $number = $this->random_number(10, 1, 10, 1);
             $data = new number();
             $data->operator = '/';
             $data->number1 = $number->number1;

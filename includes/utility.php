@@ -21,13 +21,6 @@
                 array_push($data, $quest);
             }
         }
-        else if ($operator == "plus") {
-            for ($i=0; $i < $count; $i++) { 
-                $quest = $obj->plus();
-                $quest->id = $i;
-                array_push($data, $quest);
-            }
-        }
         else if ($operator == "minus") {
             for ($i=0; $i < $count; $i++) { 
                 $quest = $obj->minus();
@@ -37,7 +30,7 @@
                 array_push($data, $quest);
             }
         }
-        else if ($operator == "mul") {
+        else if ($operator == "multi") {
             for ($i=0; $i < $count; $i++) { 
                 $quest = $obj->multi();
                 $quest->id = $i;

@@ -59,31 +59,38 @@ include 'includes/init.php';
                     ถูก
                 </div>
             </div>
-            <div class="row text-center shadow-1 rounded my-1 p-1 bg-primary bg-opacity-50 justify-content-center">
-                <div class="col-lg-1 my-auto">
-                    1
+
+            <div class="row text-center shadow-1 rounded my-1 p-0 justify-content-center">
+                <div class="col-lg-6 bg-info bg-opacity-50 p-0 m-0 rounded-left p-1">
+                    เวลา : 20 วินาที
                 </div>
-                <div class="col-lg-3 my-auto">
-                    1000-10
-                </div>
-                <div class="col-lg-6 row my-auto text-white">
-                    <div class="col bg-danger bg-opacity-50 m-1 p-2 rounded">100</div>
-                    <div class="col bg-dark bg-opacity-50 m-1 p-2 rounded">200</div>
-                    <div class="col bg-dark bg-opacity-50 m-1 p-2 rounded">300</div>
-                    <div class="col bg-dark bg-opacity-50 m-1 p-2 rounded">400</div>
-                </div>
-                <div class="col-lg-2 my-auto bg-success bg-opacity-100 m-1 p-2 rounded text-white">
-                    ถูก
+                <div class="col-lg-6 row p-0 m-0">
+                    <div class="col bg-success bg-opacity-50 p-1">ถูก 6 ข้อ</div>
+                    <div class="col bg-danger bg-opacity-50 p-1 rounded-right">ผิด 6 ข้อ</div>
                 </div>
             </div>
 
         </div>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
-
+    <script>
+    var questions = sessionStorage.games_data_question;
+    var data_send = sessionStorage.games_data_send;
+    $(document).ready(function() {
+        request = $.ajax({
+            url: "process.php",
+            type: 'post',
+            data: {action : 'result', questions: questions, data: data_send},
+        });
+        request.done(function(response, textStaus) {
+            console.log(textStaus);
+            console.log(response);
+        });
+    });
+</script>
   </body>
 </html>

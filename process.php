@@ -39,6 +39,29 @@
                     echo "กรุณากรอกข้อมูลให้ครบ";
                 }
             }
+
+            if ($_POST['action'] == 'result') {
+                print_r($_POST);
+                ?>
+                <div class="row text-center shadow-1 rounded my-1 p-1 bg-primary bg-opacity-50 justify-content-center">
+                    <div class="col-lg-1 my-auto">
+                        1
+                    </div>
+                    <div class="col-lg-3 my-auto">
+                        1000-10
+                    </div>
+                    <div class="col-lg-6 row my-auto text-white">
+                        <div class="col bg-danger bg-opacity-50 m-1 p-2 rounded">100</div>
+                        <div class="col bg-dark bg-opacity-50 m-1 p-2 rounded">200</div>
+                        <div class="col bg-dark bg-opacity-50 m-1 p-2 rounded">300</div>
+                        <div class="col bg-dark bg-opacity-50 m-1 p-2 rounded">400</div>
+                    </div>
+                    <div class="col-lg-2 my-auto bg-success bg-opacity-100 m-1 p-2 rounded text-white">
+                        ถูก
+                    </div>
+                </div>
+                <?php
+            }
         }
 
     }

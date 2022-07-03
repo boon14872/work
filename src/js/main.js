@@ -1,22 +1,36 @@
 var data_raw = new Object();
 var data_send = new Object();
+
+sessionStorage.removeItem("games_data_send");
+sessionStorage.removeItem("games_data_question");
+
+// time counter
+var totalSeconds = 0; // total number of seconds
+
+// function for time counter
+function setTime() {
+++totalSeconds; // increment time counter
+}
+
 var number = 0; // number now of question
+// send request to server and get question form server
 request = $.ajax({
     url: "process.php",
     type: 'post',
-    data: {request : 'all', uid : '1'},
+    data: {request : request, uid : uid},
     dataType: 'json'
 });
 
 // Callback handler that will be called on success
-request.done(function (response, textStatus, jqXHR){
+request.done(function (response, textStatus){
+    console.log(textStatus);
     data_raw = response;
     var data = data_raw.data;  // data for use
     var data_length = 10; // length of data
     data_send = {"id" : data_raw.q_id,"data" : []}; // data for sending with set of question id
 
     $(document).ready(function (){
-        
+        setInterval(setTime, 1000); // set time counter
         updateq(data, number); // update first question
         // check if button is clicked
         $('button').on('click', function() {
@@ -24,11 +38,18 @@ request.done(function (response, textStatus, jqXHR){
                 return; // do nothing
             }
             number++; // increment number
+            // add click data to data object
             var data_click = {
                 "id" : number,
                 "data" : $(this).text()
             };
             data_send.data.push(data_click);
+            if (number == data_length-1) {
+                data_send.time = totalSeconds;
+                sessionStorage.setItem('games_data_send', JSON.stringify(data_send)); // set data to sessionStorage
+                sessionStorage.setItem('games_data_question', JSON.stringify(data_raw)); //set data to sessionStorage
+                window.location.replace('result.php');
+            }
             updateq(data, number); // update question
         });
     });
@@ -49,13 +70,6 @@ request.done(function (response, textStatus, jqXHR){
         $('div#progress_bar > div').css("width",((number+1)*(100/(data_length)))+'%'); // update progress bar
     }
 
-    // time counter
-    var totalSeconds = 0; // total number of seconds
-    setInterval(setTime, 1000); // set time counter
 
-    // function for time counter
-    function setTime() {
-    ++totalSeconds; // increment time counter
-    }
 
 });
