@@ -7,7 +7,7 @@
         if (isset($_POST["request"]) && !empty($_POST["request"]) && isset($_POST['uid']) && !empty($_POST['uid'])) {
             $raw =  (object) question($_POST['request'], $gen_obj, $cal_obj);
             if ($regis = $questionregis_obj->regisquestion($raw, $_POST['uid'], $_POST['request'])) {
-                echo json_encode($questionregis_obj->getquestion($regis));
+                echo json_encode($questionregis_obj->getquestion($regis, true));
             }
         }
         if (isset($_POST["action"]) && !empty($_POST["action"])) {
@@ -60,9 +60,14 @@
                             <?php
                             foreach ($value->choice as $choice) {
                                 $data_id = $data->data[$key];
-                                if ($data_id->data == $choice->qc_number) {
+                                if ($data_id->qc_id == $choice->qc_id) {
                                 ?>
                                     <div class="col bg-danger bg-opacity-50 m-1 p-2 rounded"><?php echo $choice->qc_number;?></div>
+                                <?php
+                                }
+                                else if ($value->answer == $choice->qc_number) {
+                                ?>
+                                    <div class="col bg-success bg-opacity-50 m-1 p-2 rounded"><?php echo $choice->qc_number;?></div>
                                 <?php
                                 }
                                 else {
@@ -75,7 +80,7 @@
                             
                         </div>
                         <?php
-                        if ($value->answer == $data->data[$key]->data) {
+                        if ($value->answer == $data->data[$key]->data->qc_number) {
                             $data_true_count += 1;
                             ?>
                                 <div class="col-lg-2 my-auto bg-success bg-opacity-100 m-1 p-2 rounded text-white">ถูก</div>
@@ -92,7 +97,7 @@
                     </div>
                     <?php
                 }
-                if (!$questionregis_obj->log_save($data->id, $_SESSION['games']['uid'], $data->time, $data_true_count, $data_false_count)) {
+                if (!$questionregis_obj->log_save($data->id, $_SESSION['games']['uid'], $data->time, $data_true_count, $data_false_count, $data)) {
                     echo "log not saved";
                 }
                 ?>
@@ -108,10 +113,10 @@
                 foreach ($log as $key => $value) {
                     $detail = $questionregis_obj->getquestion($value->q_id, false);
                     ?>
-                    <div class="col-12 p-2 m-1 row border border-dark rounded">
-                        <div class="col-3 py-2"><img src="src/images/<?php echo $detail->q_detail;?>.png" class="img-fluid w-100" alt=""></div>
-                        <div class="col-9 row">
-                            <div class="row h3 text_font3">
+                    <a class="btn col-12 p-1 m-1 row border border-dark rounded d-flex text-left" href="result.php?log_id=<?php echo $value->id; ?>">
+                        <div class="col-3 m-0 py-2"><img src="src/images/<?php echo $detail->q_detail;?>.png" class="img-fluid w-100" alt=""></div>
+                        <div class="col-8 m-0 row">
+                            <div class="row fs-4 text_font3">
                                 ใช้เวลา <?php echo $value->time;?> วินาที <br> ถูก <?php echo $value->count_true;?> ข้อ ผิด <?php echo $value->count_false;?>ข้อ
                             </div>
                             
@@ -119,7 +124,7 @@
                                 <?php echo $value->date;?> น.
                             </div>
                         </div>
-                    </div>
+                </a>
                     <?php
                 }
             }

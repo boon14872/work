@@ -67,8 +67,30 @@ include 'includes/init.php';
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
     <script>
-    var questions = sessionStorage.games_data_question;
-    var data_send = sessionStorage.games_data_send;
+    <?php
+        if (isset($_GET['log_id']) && !empty($_GET['log_id'])) {
+            $log_id = $_GET['log_id'];
+            $uid = isset($_GET['uid']) ? $_GET['uid'] : $_SESSION['games']['uid'];
+            $log = $questionregis_obj->log_get($log_id, true);
+            $data_send = new stdClass();
+            $data_send->id = $log->q_id;
+            $data_send->time = $log->time;
+            $data_send->data = $log->detail;
+            if (!$log) return;
+            $question = $questionregis_obj->getquestion($log->q_id);
+            ?>
+            var questions = JSON.stringify(<?php echo json_encode($question);?>);
+            var data_send = JSON.stringify(<?php echo json_encode($data_send);?>);
+            <?php
+        }
+        else {
+            ?>
+            var questions = sessionStorage.games_data_question;
+            var data_send = sessionStorage.games_data_send;
+            <?php
+        }
+    ?>
+    
     var true_count = 0;
     var false_count = 0;
     $(document).ready(function() {
@@ -88,6 +110,9 @@ include 'includes/init.php';
             $('div > a#retry').attr('href', retry);
             // console.log(textStaus);
             // console.log(response);
+            sessionStorage.removeItem("games_data_send");
+            sessionStorage.removeItem("games_data_question");
+
         });
     });
 </script>

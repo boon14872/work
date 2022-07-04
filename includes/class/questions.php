@@ -34,12 +34,16 @@ class QuestionsRegis
         return $last_id_set;
     }
 
-    public function getquestion_choice($q_id) {
+    public function getquestion_choice($id, $all = true) {
+        if (!$all) {
+            $sql = "Select * from questions_choice where qc_id = ?";
+            $q = $this->db->prepare($sql);
+            if ($q->execute([$id])) return $q->fetch(PDO::FETCH_OBJ);
+            return false;
+        }
         $sql = "Select * from questions_choice where qd_id = ?";
         $q = $this->db->prepare($sql);
-        if ($q->execute([$q_id])) {
-            return $q->fetchAll(PDO::FETCH_OBJ);
-        }
+        if ($q->execute([$id])) return $q->fetchAll(PDO::FETCH_OBJ);
         return false;
     }
 
@@ -80,15 +84,13 @@ class QuestionsRegis
                 $data->length = count((array)$data_q);
                 return $data;
             }
-            else {
-                return $q->fetch(PDO::FETCH_OBJ);
-            }
+            else return $q->fetch(PDO::FETCH_OBJ);
             
         }
         return false;
     }
 
-    public function log_save($qset_id, $uid, $time, $ctrue, $cfalse) {
+    public function log_save($qset_id, $uid, $time, $ctrue, $cfalse,object $q_choice) {
         $c_sql = "select * from history_log where q_id = ? and uid = ?";
         $check = $this->db->prepare($c_sql);
         if ($check->execute([$qset_id, $uid])) {
@@ -99,15 +101,52 @@ class QuestionsRegis
         $sql = "Insert into history_log(q_id, uid, time, count_true, count_false) values(?, ?, ?, ?, ?)";
         $log = $this->db->prepare($sql);
         if ($log->execute([$qset_id, $uid, $time, $ctrue, $cfalse])) {
+            $last_id = $this->db->lastInsertId();
+            foreach ($q_choice->data as $choice) {
+                $d_sql = "insert into history_log_detail(log_id, qc_id) values(?, ?)";
+                $detail = $this->db->prepare($d_sql);
+                if (!$detail->execute([$last_id, $choice->qc_id])) return false;
+            }
             return true;
         }
         return false;
     }
 
-    public function log_get($uid) {
+    public function log_get_detail($log_id) {
+        $sql = "select * from history_log_detail where log_id = ?";
+        $q = $this->db->prepare($sql);
+        if ($q->execute([$log_id])) {
+            $data = $q->fetchAll(PDO::FETCH_OBJ);
+            $send = array();
+            foreach ($data as $row) {
+                $result = new stdClass();
+                $result->id = $row->id;
+                $result->log_id = $row->log_id;
+                $result->qc_id = $row->qc_id;
+                $result->data = $this->getquestion_choice($row->qc_id ,false);
+                array_push($send,$result);
+            }
+            
+            return json_decode(json_encode($send), FALSE);;
+        }
+        return false;
+    }
+
+    public function log_get($id, $log_id = false) {
+        if ($log_id) {
+            $sql = "Select * from history_log where id = ?";
+            $q = $this->db->prepare($sql);
+            if ($q->execute([$id])) {
+                $data = $q->fetch(PDO::FETCH_OBJ);
+                $data->detail = $this->log_get_detail($data->id);
+                if ($q->rowCount() == 0) return false;
+                return $data;
+            }
+            return false;
+        }
         $sql = "Select * from history_log where uid = ? ORDER BY id DESC";
         $q = $this->db->prepare($sql);
-        if ($q->execute([$uid])) {
+        if ($q->execute([$id])) {
             return $q->fetchAll(PDO::FETCH_OBJ);
         }
         return false;

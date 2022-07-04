@@ -103,7 +103,7 @@ include 'includes/init.php';
                 <div class="col-md-6 row mx-auto">
                     <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50 pt-3"><img src="src/images/all.png" class="img-fluid w-100 back" alt=""></div>
                     <a name="" id="" class="btn col-8 text-center fs-4 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="page.php?request=all" role="button">
-                    <div class="">
+                    <div class="px-4">
                       <p class="p-2 m-0">บวก-ลบ-คูณ-หาร</p>
                     </div></a>
                   </div>

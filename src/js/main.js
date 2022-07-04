@@ -41,7 +41,8 @@ request.done(function (response, textStatus){
             // add click data to data object
             var data_click = {
                 "id" : number,
-                "data" : $(this).text()
+                "qc_id" : data[number-1].choice[$(this).attr("id")].qc_id,
+                "data" : {qc_id :data[number-1].choice[$(this).attr("id")].qc_id ,qd_id: data[number-1].choice[$(this).attr("id")].qd_id,qc_number : $(this).text()}
             };
             data_send.data.push(data_click);
             if (number == data_length) {
