@@ -53,14 +53,14 @@ include 'includes/init.php';
 
                 <div class="col-md-6 row mx-auto">
                   <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50"><img src="src/images/plus.png" class="img-fluid w-100 back" alt=""></div>
-                  <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="page.php?request=plus" role="button">
+                  <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1 justify-content-center" href="page.php?request=plus" role="button">
                     <div class="">
                       <p class="p-2 m-0">บวก</p>
                     </div></a>
                 </div>
                 <div class="col-md-6 row mx-auto">
                   <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50"><img src="src/images/minus.png" class="img-fluid w-100 back" alt=""></div>
-                  <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="page.php?request=minus" role="button">
+                  <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1 justify-content-center" href="page.php?request=minus" role="button">
                     <div class="">
                       <p class="p-2 m-0">ลบ</p>
                     </div></a>
@@ -70,14 +70,14 @@ include 'includes/init.php';
               <div class="row my-3"> <!-- /.row -->
                 <div class="col-md-6 row mx-auto">
                     <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50"><img src="src/images/multi.png" class="img-fluid w-100 back" alt=""></div>
-                    <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="page.php?request=multi" role="button">
+                    <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1 justify-content-center" href="page.php?request=multi" role="button">
                     <div class="">
                       <p class="p-2 m-0">คูณ</p>
                     </div></a>
                   </div>
                   <div class="col-md-6 row mx-auto">
                     <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50"><img src="src/images/div.png" class="img-fluid w-100 back" alt=""></div>
-                    <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="page.php?request=div" role="button">
+                    <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1 justify-content-center" href="page.php?request=div" role="button">
                     <div class="">
                       <p class="p-2 m-0">หาร</p>
                     </div></a>
@@ -86,14 +86,14 @@ include 'includes/init.php';
               <div class="row my-3"> <!-- /.row -->
                 <div class="col-md-6 row mx-auto">
                     <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50 pt-3"><img src="src/images/basic.png" class="img-fluid w-100 back" alt=""></div>
-                    <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="page.php?request=basic" role="button">
+                    <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1 justify-content-center" href="page.php?request=basic" role="button">
                     <div class="">
                       <p class="p-2 m-0">บวก-ลบ</p>
                     </div></a>
                   </div>
                   <div class="col-md-6 row  mx-auto">
                     <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50 pt-3"><img src="src/images/advanced.png" class="img-fluid w-100 back" alt=""></div>
-                    <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="page.php?request=advanced" role="button">
+                    <a name="" id="" class="btn col-8 text-center fs-2 p-1 text_font3 bg-warning bg-opacity-25 back m-1 justify-content-center" href="page.php?request=advanced" role="button">
                     <div class="">
                       <p class="p-2 m-0">คูณ-หาร</p>
                     </div></a>
@@ -102,7 +102,7 @@ include 'includes/init.php';
               <div class="row my-3"> <!-- /.row -->
                 <div class="col-md-6 row mx-auto">
                     <div class="col-3 py-2 back img_left bg-success mb-4 m-1 border rounded bg-opacity-50 pt-3"><img src="src/images/all.png" class="img-fluid w-100 back" alt=""></div>
-                    <a name="" id="" class="btn col-8 text-center fs-4 p-1 text_font3 bg-warning bg-opacity-25 back m-1" href="page.php?request=all" role="button">
+                    <a name="" id="" class="btn col-8 text-center fs-4 p-1 text_font3 bg-warning bg-opacity-25 back m-1 justify-content-center" href="page.php?request=all" role="button">
                     <div class="px-4">
                       <p class="p-2 m-0">บวก-ลบ-คูณ-หาร</p>
                     </div></a>
