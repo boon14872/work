@@ -18,6 +18,10 @@ include 'includes/init.php';
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="stylesheet" href="src/mdb/css/mdb.min.css">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
   </head>
   <body>
     <div class="container">
@@ -55,9 +59,9 @@ include 'includes/init.php';
                     <div class="col bg-danger bg-opacity-50 p-1 rounded-right">ผิด <span id="falsecount" class="m-0 p-0"></span> ข้อ</div>
                 </div>
             </div>
-            <div class="p-3 text-center">
-                <a name="" id="" class="btn btn-success fs-3" href="index.php" role="button">หน้าหลัก</a>
-                <a name="" id="retry" class="btn btn-secondary fs-3" href="" role="button">เล่นอีกครั้ง</a>
+            <div class="p-3 text-center row justify-content-center">
+                <a name="" id="" class="btn btn-success fs-3 col-lg-3 mx-2" href="index.php" role="button">หน้าหลัก</a>
+                <a name="" id="retry" class="btn btn-secondary fs-3 col-lg-3 mx-2" href="" role="button">เล่นอีกครั้ง</a>
             </div>
         </div>
       </div>
@@ -110,8 +114,6 @@ include 'includes/init.php';
             $('div > a#retry').attr('href', retry);
             // console.log(textStaus);
             // console.log(response);
-            sessionStorage.removeItem("games_data_send");
-            sessionStorage.removeItem("games_data_question");
 
         });
     });

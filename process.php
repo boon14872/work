@@ -113,7 +113,7 @@
                 foreach ($log as $key => $value) {
                     $detail = $questionregis_obj->getquestion($value->q_id, false);
                     ?>
-                    <a class="btn col-12 p-1 m-1 row border border-dark rounded d-flex text-left" href="result.php?log_id=<?php echo $value->id; ?>">
+                    <a class="btn col-12 p-1 my-1 row border border-dark rounded d-flex text-left" href="result.php?log_id=<?php echo $value->id; ?>">
                         <div class="col-3 m-0 py-2"><img src="src/images/<?php echo $detail->q_detail;?>.png" class="img-fluid w-100" alt=""></div>
                         <div class="col-8 m-0 row">
                             <div class="row fs-4 text_font3">

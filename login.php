@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="stylesheet" href="src/mdb/css/mdb.min.css">
 
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
   </head>
   <body>
     <div class="container text_font3 py-3 p-5">

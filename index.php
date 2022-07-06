@@ -14,6 +14,9 @@ include 'includes/init.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="src/css/style.css">
@@ -107,6 +110,9 @@ include 'includes/init.php';
                       <p class="p-2 m-0">บวก-ลบ-คูณ-หาร</p>
                     </div></a>
                   </div>
+              </div>  <!-- /.row -->
+              <div class="row my-3 justify-content-center"> <!-- /.row -->
+                <div  class="col-6 mt-3"><button type="button" class="btn btn-dark fs-3 text-center mx-auto">วิธีการเล่น</button></div>
               </div>  <!-- /.row -->
             </div>
           </div>
