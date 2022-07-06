@@ -4,10 +4,10 @@
     {
         public function connect()
         {
-            $host = 'localhost';
-            $user = 'root';
-            $pass = '';
-            $dbname = 'mygame';
+            $host = getenv('dbhost');
+            $user = getenv('dbuser');
+            $pass = getenv('dbpass');
+            $dbname = getenv('dbname');
             $charset = 'utf8';
             $state = "mysql:host=".$host.";dbname=".$dbname.";charset=".$charset.";";
             $db = new PDO($state,$user,$pass);
