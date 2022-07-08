@@ -23,11 +23,11 @@
         <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
         <li class="nav-item" role="presentation">
             <a class="nav-link active" id="nav-login-tab" data-toggle="pill" href="#nav-login" role="tabp"
-            aria-controls="nav-login" aria-selected="true">Login</a>
+            aria-controls="nav-login" aria-selected="true">เข้าสู่ระบบ</a>
         </li>
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="nav-register-tab" data-toggle="pill" href="#nav-register" role="tab"
-            aria-controls="nav-register" aria-selected="false">Register</a>
+            aria-controls="nav-register" aria-selected="false">สมัครสมาชิก</a>
         </li>
         </ul>
         <!-- Pills navs -->
@@ -61,7 +61,7 @@
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+            <button type="submit" class="btn btn-success btn-block mb-4">เข้าสู่ระบบ</button>
 
             <!-- Register buttons -->
 
@@ -105,7 +105,7 @@
             </div>
 
             <!-- Submit button -->
-            <button type="submit" id="registerSubmit" class="btn btn-primary btn-block mb-3">Register</button>
+            <button type="submit" id="registerSubmit" class="btn btn-secondary btn-block mb-3">สมัครสมาชิก</button>
             </form>
         </div>
         </div>

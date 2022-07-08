@@ -24,6 +24,7 @@ request = $.ajax({
 
 // Callback handler that will be called on success
 request.done(function (response, textStatus){
+    totalSeconds = 0;
     $.LoadingOverlay("hide");
     console.log(textStatus);
     data_raw = response;
