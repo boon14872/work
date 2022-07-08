@@ -69,6 +69,7 @@ include 'includes/init.php';
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
     <script>
     <?php
@@ -102,8 +103,10 @@ include 'includes/init.php';
             url: "process.php",
             type: 'post',
             data: {action : 'result', questions: questions, data: data_send},
+            beforeSend: () => {$.LoadingOverlay("show");}
         });
         request.done(function(response, textStaus) {
+            $.LoadingOverlay("hide");
             $('div#result').html(response);
             true_count = data_true_count;
             false_count = data_false_count;

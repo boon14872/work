@@ -18,11 +18,13 @@ request = $.ajax({
     url: "process.php",
     type: 'post',
     data: {request : request, uid : uid},
-    dataType: 'json'
+    dataType: 'json',
+    beforeSend: () => {$.LoadingOverlay("show");}
 });
 
 // Callback handler that will be called on success
 request.done(function (response, textStatus){
+    $.LoadingOverlay("hide");
     console.log(textStatus);
     data_raw = response;
     var data = data_raw.data;  // data for use
