@@ -60,8 +60,8 @@ include 'includes/init.php';
                 </div>
             </div>
             <div class="p-3 text-center row justify-content-center">
-                <a name="" id="" class="btn btn-success fs-3 col-lg-3 mx-2" href="index.php" role="button">หน้าหลัก</a>
-                <a name="" id="retry" class="btn btn-secondary fs-3 col-lg-3 mx-2" href="" role="button">เล่นอีกครั้ง</a>
+                <a name="" id="" class="btn btn-success fs-3 col-lg-3 mx-2 text-center" href="index.php" role="button">หน้าหลัก</a>
+                <a name="" id="retry" class="btn btn-secondary fs-3 col-lg-3 mx-2 text-center" href="" role="button">เล่นอีกครั้ง</a>
             </div>
         </div>
       </div>
