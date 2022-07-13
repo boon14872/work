@@ -149,6 +149,7 @@
                 $.post('process.php',serializedData,(data) => {
                     $.LoadingOverlay("hide");
                     if (data == 1) {
+                        $.LoadingOverlay("show");
                         window.location.replace('index.php');
                     }
                     else {
